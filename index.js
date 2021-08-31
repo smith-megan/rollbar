@@ -11,7 +11,7 @@ let students=[]
 
 // include and initialize the rollbar library with your access token
 var rollbar = new Rollbar({
-  accessToken: '5520cd4cf12a4fe48fa8a32e60b9ee10',
+  accessToken: '48919cbac623421f8c4d079e8e09fe2e',
   captureUncaught: true,
   captureUnhandledRejections: true
 });
