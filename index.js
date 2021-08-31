@@ -25,7 +25,7 @@ app.post('/api/trace', (req, res)=>{
 
   traces.push(trace)
       rollbar.log('trace added successfully', {author: 'Megan'})
-      res.status(200).send(students)
+      res.status(200).send(traces)
 })
 
 const port=process.env.PORT || 5545
