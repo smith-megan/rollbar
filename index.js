@@ -16,6 +16,17 @@ app.get('/', (req, res)=>{
   res.sendFile(path.join(__dirname, 'public/index.html'))
   rollbar.info('html file served successfully.')
   })
+let traces=[]
+
+app.post('/api/trace', (req, res)=>{
+ let {trace} = req.body
+ 
+  const index = traces.findIndex(traceName=> traceName === trace)
+
+  traces.push(trace)
+      rollbar.log('trace added successfully', {author: 'Megan'})
+      res.status(200).send(students)
+})
 
 const port=process.env.PORT || 5545
 
