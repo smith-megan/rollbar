@@ -48,10 +48,7 @@
                 })
         }
         function errorCall() {
-          axios.get('/api/r').then(
-res=> console.log(res)
-          ).cath(err=>
-          console.log(err))
+          axios.get('/api/r')
         }
 
         addForm.addEventListener('submit', submitHandler)
