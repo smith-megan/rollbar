@@ -23,11 +23,19 @@ app.get('/', (req, res)=>{
 app.post('/api/trace', (req, res)=>{
  let {trace} = req.body
  
-  // const index = traces.findIndex(traceName=> traceName === trace)
+  const index = traces.findIndex(traceName=> traceName === trace)
 
-      traces.push(trace)
+  if(index===-1 && trace !==""){
+      traces.push(" "+trace)
       rollbar.log('trace added successfully', {author: 'Megan'})
       res.status(200).send(traces)
+  } else if (trace===''){
+    rollbar.error('no trace given')
+    res.status(400).send('provide trace')
+  } else {
+    rollbar.error('already exists')
+    res.status(400).send('already exists')
+  }
 })
 
 const port=process.env.PORT || 5545

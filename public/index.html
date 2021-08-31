@@ -21,13 +21,13 @@
 
     function submitHandler(e){
         e.preventDefault()
-        axios.post('/api/trace', {trace: nameInput.value, })
+        axios.post('/api/trace', {name: nameInput.value, })
             .then(res => {
                 container.innerHTML = ''
                 nameInput.value = ''
 
-                res.data.forEach(traceName => {
-                    container.innerHTML += `<p>${traceName}</p>`
+                res.data.forEach(name => {
+                    container.innerHTML += `<p>${name}</p>`
                 })
             })
             .catch(err => {
