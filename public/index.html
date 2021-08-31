@@ -34,7 +34,7 @@
                 nameInput.value = ''
 
                 const notif = document.createElement('aside')
-                notif.innerHTML = `<p>${err.response.data}</p>
+                notif.innerHTML = `<p>${err}</p>
                 <button class='close'>close</button>`
                 document.body.appendChild(notif)
 
@@ -47,7 +47,6 @@
     }
 
     addForm.addEventListener('submit', submitHandler)
-    fakeFunctionThrowError()
 </script>
 </body>
 </html>

@@ -25,7 +25,7 @@ app.post('/api/trace', (req, res)=>{
  
   // const index = traces.findIndex(traceName=> traceName === trace)
 
-  traces.push(trace)
+      traces.push(trace)
       rollbar.log('trace added successfully', {author: 'Megan'})
       res.status(200).send(traces)
 })
