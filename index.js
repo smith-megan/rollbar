@@ -7,7 +7,7 @@ const app = express()
 app.use(express.json())
 app.use('/style', express.static('./public/styles.css'))
 
-let students=[]
+let track=[]
 
 // include and initialize the rollbar library with your access token
 var rollbar = new Rollbar({
@@ -24,16 +24,16 @@ res.sendFile(path.join(__dirname, 'public/index.html'))
 rollbar.info('html file served successfully.')
 })
 
-app.post('/api/student', (req, res)=>{
+app.post('/api/t', (req, res)=>{
   let {name} = req.body
   name = name.trim()
 
-  const index = students.findIndex(studentName=> studentName === name)
+  const index = track.findIndex(studentName=> studentName === name)
 
   if(index === -1 && name !== ''){
-      students.push(name)
+      track.push(name)
       rollbar.log('student added successfully', {author: 'Scott'})
-      res.status(200).send(students)
+      res.status(200).send(track)
   } else if (name === ''){
       rollbar.error('no name given', {author: 'megan'})
       res.status(400).send('must provide a name.')
