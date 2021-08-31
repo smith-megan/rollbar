@@ -26,8 +26,8 @@
                 container.innerHTML = ''
                 nameInput.value = ''
 
-                res.data.forEach(studentName => {
-                    container.innerHTML += `<p>${studentName}</p>`
+                res.data.forEach(traceName => {
+                    container.innerHTML += `<p>${traceName}</p>`
                 })
             })
             .catch(err => {
@@ -47,6 +47,7 @@
     }
 
     addForm.addEventListener('submit', submitHandler)
+    fakeFunctionThrowError()
 </script>
 </body>
 </html>
