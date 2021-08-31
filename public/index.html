@@ -13,11 +13,13 @@
         <input type="text" placeholder="Type name here"/>
         <button>Add Tracking</button>
     </form>
+      <button id="error">not a function</button>
     <section></section>
     <script>
         const addForm = document.querySelector('form')
         const nameInput = document.querySelector('input')
         const container = document.querySelector('section')
+        const errBtn= document.getElementById('error')
 
         function submitHandler(e){
             e.preventDefault()
@@ -45,8 +47,15 @@
                     })
                 })
         }
+        function errorCall() {
+          axios.get('/api/r').then(
+res=> console.log(res)
+          ).cath(err=>
+          console.log(err))
+        }
 
         addForm.addEventListener('submit', submitHandler)
+        errBtn.addEventListener('click', errorCall)
     </script>
 </body>
 </html>
