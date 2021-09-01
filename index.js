@@ -51,6 +51,16 @@ app.post('/api/button', (req, res)=>{
   }
 })
 
+
+app.post('/api/warn', (req, res)=>{
+    rollbar.warn("you have sassy users around", {author: 'megan'})
+})
+
+app.post('/api/correct', (req, res)=>{
+  rollbar.info("your users are doing things right", {author: 'megan'})
+})
+
+
 const port=process.env.PORT || 4545
 
 rollbar.log("Hello world!");

@@ -14,12 +14,33 @@
         <button>Add Tracking</button>
     </form>
       <button id="error">not a function</button>
+      <p>please only click the left button ;)</p>
+      <button id="warning">right</button>
+      <button id="correct">left</button>
     <section></section>
     <script>
         const addForm = document.querySelector('form')
         const nameInput = document.querySelector('input')
         const container = document.querySelector('section')
         const errBtn= document.getElementById('error')
+        const warningBtn=document.getElementById('warning')
+        const correctBtn=document.getElementById('correct')
+
+        function warning(){
+          axios.post('/api/warn').then(res=>{
+            let warn=document.createElement('p')
+            warn.innterHTML='I said not to press that'
+            document.body.appendChild(warn)
+          })
+        }
+
+        function correct(){
+          axios.post('/api/correct').then(res=>{
+            let correctly=document.createElement('p')
+            correctly.innterHTML='Well done'
+            document.body.appendChild(correctly)
+          })
+        }
 
         function submitHandler(e){
             e.preventDefault()
@@ -56,6 +77,8 @@
 
         addForm.addEventListener('submit', submitHandler)
         errBtn.addEventListener('click', errorCall)
+        warningBtn.addEventListener('click', warning)
+        correctBtn.addEventListener('click', correct)
     </script>
 </body>
 </html>
