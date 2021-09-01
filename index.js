@@ -45,12 +45,10 @@ app.post('/api/t', (req, res)=>{
 })
 
 
-app.post('/api/r', (req, res)=>{
-  try{
-  mistake()} catch (err) {
-    rollbar.error("function doesn't exist", {author: 'megan'})
+app.post('/api/button', (req, res)=>{
+  try{mistake()} catch (err){
+    rollbar.critical("function doesn't exist", {author: 'megan'})
   }
-
 })
 
 const port=process.env.PORT || 4545
