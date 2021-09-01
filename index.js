@@ -46,18 +46,22 @@ app.post('/api/t', (req, res)=>{
 
 
 app.post('/api/button', (req, res)=>{
-  try{mistake()} catch (err){
+  try{mistake()
+  res.send(200).send('in your dreams')} catch (err){
     rollbar.critical("function doesn't exist", {author: 'megan'})
+    res.send(500).send("I expect this")
   }
 })
 
 
 app.post('/api/warn', (req, res)=>{
     rollbar.warn("you have sassy users around", {author: 'megan'})
+    res.status(200).send('sent')
 })
 
 app.post('/api/correct', (req, res)=>{
   rollbar.info("your users are doing things right", {author: 'megan'})
+  res.status(200).send('sent2')
 })
 
 
