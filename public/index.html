@@ -29,7 +29,7 @@
         function warning(){
           axios.post('/api/warn').then(res=>{
             let warn=document.createElement('p')
-            warn.innerHTML='I said not to press that'
+            warn.textContent='I said not to press that'
             document.body.appendChild(warn)
           })
         }
@@ -37,7 +37,7 @@
         function correct(){
           axios.post('/api/correct').then(res=>{
             let correctly=document.createElement('p')
-            correctly.innerHTML='Well done'
+            correctly.textContent='Well done'
             document.body.appendChild(correctly)
           })
         }
